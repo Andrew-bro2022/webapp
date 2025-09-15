@@ -176,13 +176,14 @@
         
         <div class="links">
             <a href="index.jsp">Back to Home</a>
+            <a href="register">Create Account</a>
         </div>
         
         <div class="demo-info">
             <h4>📝 Demo Account Information</h4>
             <p><strong>Username:</strong> hostedftp</p>
             <p><strong>Password:</strong> money</p>
-            <p><em>Please run the database initialization script first to create test data</em></p>
+            <p><em>Please register this account first using the registration form</em></p>
         </div>
     </div>
 </body>

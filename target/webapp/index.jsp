@@ -85,6 +85,7 @@
         
         <div style="text-align: center; margin-top: 30px;">
             <a href="login" class="btn">User Login</a>
+            <a href="register" class="btn">User Registration</a>
             <a href="hello" class="btn">Test Servlet</a>
             <a href="https://maven.apache.org/" target="_blank" class="btn">Maven Documentation</a>
         </div>

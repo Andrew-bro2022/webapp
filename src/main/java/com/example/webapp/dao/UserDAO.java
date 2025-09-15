@@ -2,6 +2,7 @@ package com.example.webapp.dao;
 
 import com.example.webapp.model.User;
 import com.example.webapp.util.DatabaseUtil;
+import com.example.webapp.util.PasswordUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -39,28 +40,36 @@ public class UserDAO {
     }
     
     /**
-     * Validate user login
+     * Validate user login with secure password verification
      * @param username Username
-     * @param password Password
+     * @param password Plain text password
      * @return User object, null if validation fails
      */
     public User validateLogin(String username, String password) {
-        String sql = "SELECT id, username, password, email, full_name, created_at FROM users WHERE username = ? AND password = ?";
+        String sql = "SELECT id, username, password, email, full_name, created_at FROM users WHERE username = ?";
         
         System.out.println("Executing SQL query: " + sql);
-        System.out.println("Query parameters - Username: '" + username + "', Password: '" + password + "'");
+        System.out.println("Query parameters - Username: '" + username + "'");
         
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, username);
-            stmt.setString(2, password);
             
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     User user = mapResultSetToUser(rs);
-                    System.out.println("Database query successful, user found: " + user.getUsername());
-                    return user;
+                    String storedPassword = user.getPassword();
+                    
+                    // Use secure password verification
+                    if (PasswordUtil.verifyPassword(password, storedPassword)) {
+                        System.out.println("Database query successful, user found: " + user.getUsername());
+                        // Clear password from user object before returning
+                        user.setPassword(null);
+                        return user;
+                    } else {
+                        System.out.println("Password verification failed for user: " + username);
+                    }
                 } else {
                     System.out.println("Database query completed, no matching user found");
                 }

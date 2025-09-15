@@ -58,6 +58,17 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
+  <!-- Register Servlet -->
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.example.webapp.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
   <!-- Session configuration -->
   <session-config>
     <session-timeout>30</session-timeout>

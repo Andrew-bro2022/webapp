@@ -1,8 +1,10 @@
 com\example\webapp\HelloServlet.class
-com\example\webapp\servlet\LoginServlet.class
 com\example\webapp\test\DatabaseConnectionTest.class
-com\example\webapp\util\DatabaseUtil.class
 com\example\webapp\model\User.class
 com\example\webapp\servlet\WelcomeServlet.class
 com\example\webapp\servlet\LogoutServlet.class
 com\example\webapp\dao\UserDAO.class
+com\example\webapp\servlet\LoginServlet.class
+com\example\webapp\servlet\RegisterServlet.class
+com\example\webapp\util\DatabaseUtil.class
+com\example\webapp\util\PasswordUtil.class
