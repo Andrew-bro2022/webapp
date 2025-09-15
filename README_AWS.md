@@ -367,6 +367,47 @@ If you encounter issues, please check:
 
 ---
 
-**Last Updated**: September 2025
-**Maintainer**: [Your Name]
+## 11. Code Update and Deployment Process
+
+### 11.1 Update Code
+```bash
+# Reset to the latest commit and pull the newest code
+git reset --hard HEAD
+git pull origin main
+```
+
+### 11.2 Recompile
+```bash
+# Clean and recompile
+mvn clean compile package
+
+# Check the compilation result
+echo "Compilation exit code: $?"
+```
+
+### 11.3 Deploy the New Version
+```bash
+# Deploy the new WAR file to the correct Tomcat path
+sudo cp target/webapp.war /var/lib/tomcat9/webapps/
+
+# Set the correct permissions
+sudo chown tomcat:tomcat /var/lib/tomcat9/webapps/webapp.war
+
+# Verify that the file has been deployed successfully
+ls -la /var/lib/tomcat9/webapps/webapp.war
+```
+
+### 11.4 Restart Tomcat
+```bash
+# Restart the Tomcat service
+sudo systemctl restart tomcat9
+
+# Check the service status
+sudo systemctl status tomcat9
+```
+
+---
+
+**Last Updated**: September.13 2025
+**Maintainer**: [Andy Yuchi Zheng]
 **Version**: 1.0

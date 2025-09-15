@@ -78,9 +78,9 @@ mvn clean package
 
 | Username  | Password        | Description |
 |-----------|-----------------|-------------|
-| hostedftp | Money123456789! | Test Account (register first) |
-| admin     | Admin111111111@ | Admin Account (register first) |
-| user1     | Password123456# | User Account (register first) |
+| hostedftp | Money123456789! | Test1       |
+| admin     | Admin111111111@ | Test2       |
+| user1     | Password123456# | Test3 (demo)|
 
 **Note**: All test accounts need to be registered first using the registration form.
 
