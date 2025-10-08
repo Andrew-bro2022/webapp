@@ -1,6 +1,6 @@
 # Java Web Application - User Login System
 
-This is a web application developed using pure Java technology stack, implementing user login verification and personalized welcome page functionality.
+This is a web application developed using pure Java technology stack, implementing user login verification and personalized welcome page functionality. Here is the public link: https://54.221.107.40/webapp/login and demo video link: https://youtu.be/CzeJUOHXt2c
 
 ## 🚀 Technology Stack
 

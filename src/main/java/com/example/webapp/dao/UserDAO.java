@@ -20,6 +20,7 @@ public class UserDAO {
      * @return User object, null if not found
      */
     public User findByUsername(String username) {
+        // SQL Injection Protection - PreparedStatement implementation
         String sql = "SELECT id, username, password, email, full_name, created_at FROM users WHERE username = ?";
         
         try (Connection conn = DatabaseUtil.getConnection();
@@ -46,6 +47,7 @@ public class UserDAO {
      * @return User object, null if validation fails
      */
     public User validateLogin(String username, String password) {
+        // SQL Injection Protection - PreparedStatement implementation
         String sql = "SELECT id, username, password, email, full_name, created_at FROM users WHERE username = ?";
         
         System.out.println("Executing SQL query: " + sql);
@@ -88,6 +90,7 @@ public class UserDAO {
      * @return Whether creation was successful
      */
     public boolean createUser(User user) {
+        // SQL Injection Protection - PreparedStatement implementation
         String sql = "INSERT INTO users (username, password, email, full_name) VALUES (?, ?, ?, ?)";
         
         try (Connection conn = DatabaseUtil.getConnection();
@@ -120,6 +123,7 @@ public class UserDAO {
      * @return List of users
      */
     public List<User> getAllUsers() {
+        // SQL Injection Protection - PreparedStatement implementation
         List<User> users = new ArrayList<>();
         String sql = "SELECT id, username, password, email, full_name, created_at FROM users ORDER BY created_at DESC";
         
@@ -143,6 +147,7 @@ public class UserDAO {
      * @return User object, null if not found
      */
     public User findById(int id) {
+        // SQL Injection Protection - PreparedStatement implementation
         String sql = "SELECT id, username, password, email, full_name, created_at FROM users WHERE id = ?";
         
         try (Connection conn = DatabaseUtil.getConnection();
